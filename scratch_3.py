@@ -188,7 +188,7 @@ for epoch in range(2):
     train_acc = 0
     correct = 0
     total = 0
-
+    #训练
     for i, data in enumerate(train_loader, 0):
 
         inputs, lables = data
@@ -209,7 +209,7 @@ for epoch in range(2):
         optimizer.step()
         if i % 100 == 99:
             print(epoch+1, i)
-
+    #验证
     for data in val_loader:
         vis.text('hello55', win='text1')
         inputs, lables = data
@@ -221,6 +221,7 @@ for epoch in range(2):
         correct += (pred == lables).sum()
     print('验证集分类准确率为：%.3f%%' % (100 * correct / total))
     acc = 100. * correct / total
+    #如果验证出来准确率大于bestAcc就保存，如果连续三次低于bestAcc就停止训练
     if acc>bestAcc:
         stopAccount=0
         print('Saving model......')
