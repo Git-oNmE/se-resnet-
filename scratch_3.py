@@ -181,7 +181,7 @@ vis = visdom.Visdom(env='res_model')
 #
 bestAcc=0
 stopAccount=0
-#
+#训练和验证
 for epoch in range(2):
 
     train_loss = 0
@@ -237,7 +237,7 @@ for epoch in range(2):
              X=np.column_stack(np.array([epoch + 1, epoch + 1, epoch + 1])),
              win='main',
              update='append')
-
+#测试
 totalt=0
 correctt=0
 for data in test_loader:
