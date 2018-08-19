@@ -18,7 +18,7 @@ transform = transforms.Compose(
 trainset = torchvision.datasets.CIFAR10(root='./data', train=True,download=True, transform=transform)
 testset = torchvision.datasets.CIFAR10(root='./data', train=False,download=True, transform=transform)
 #设置验证集大小
-split_size = trainset.__sizeof__()*0.7
+split_size = trainset.__sizeof__()*0.7#这里出了问题，但是google找不到正确的方法划分
 trainset, valset = trainset[:split_size], trainset[split_size:]
 #
 classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
